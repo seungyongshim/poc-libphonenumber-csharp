@@ -49,7 +49,7 @@ jobs:
         sed -i 's%<base href="/"%<base href="/${{env.REPOSITORY_SLUG}}/"%g' ../docs/wwwroot/index.html
         touch ../docs/wwwroot/.nojekyll
     - name: Deploy to Github Pages
-      uses: JamesIves/github-pages-deploy-action@releases/v3
+      uses: JamesIves/github-pages-deploy-action@v4
       with:
         ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         BASE_BRANCH: master
