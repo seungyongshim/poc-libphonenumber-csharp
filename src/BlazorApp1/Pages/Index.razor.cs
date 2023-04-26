@@ -48,7 +48,14 @@ namespace BlazorApp1.Pages
 
                     var result = PhoneNumberUtil.Parse(x.Number, x.Country);
 
-                    Number1 = $"{result.CountryCode}{result.NationalNumber}";
+                    if (PhoneNumberUtil.IsValidNumberForRegion(result, x.Country))
+                    {
+                        Number1 = $"{result.CountryCode}{result.NationalNumber}";
+                    }
+                    else
+                    {
+                        Number1 = $"Wrong Number";
+                    }
                 }
                 catch
                 {
